@@ -1,7 +1,7 @@
 {
-  "name": "hc-fec",
+  "name": "mock-app-front-end",
   "version": "1.0.0",
-  "description": "FEC V2.0",
+  "description": "Front End for Mock App",
   "main": "index.js",
   "scripts": {
     "start": "webpack --mode=development",

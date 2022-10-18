@@ -1,71 +1,54 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import Overview from './components/Overview/Overview.jsx';
+import Product from './components/Product/Product.jsx';
 // import Questions from './components/Questions/Questions.jsx';
 // import Reviews from './components/Reviews.jsx';
 import './App.css';
 
-const App = () => {
-  const [productID, setProductID] = useState(37313);
-  // All info stored in one state.
-  const [productAll, setProductAll] =useState({});
+const SERVER_IP = 'http://localhost:3000';
 
-  // Update state on mount.
+const App = () => {
+  const [productId, setProductId] = useState(1);
+  // All info stored in one state.
+  const [productInfo, setProductInfo] =useState();
+  const [productStyles, setProductStyles] =useState();
+
   useEffect(() => {
-    // updateState(productID);
+    // Get Products
+    // axios.get(`${SERVER_IP}/products/${productId}`)
+    // .then((response) => {
+    //   setProductInfo(response.data[0])
+    // })
+    // .catch((error) => (console.log('Get Products Error:', error)));
+    updateProduct(productId)
   }, []);
 
-  const updateState = (id, page=1, count=10, sort='relevant') => {
-    id = Number(id);
+  const updateProduct = (id) => {
+    // id = Number(id);
     axios
       .all([
-        // All products not needed right now.
-        axios.get(`/products/?page=${page}&count=${count}`),
-        // Product Information
-        axios.get(`/products/${id}`),
-        // Product Styles
-        axios.get(`/products/${id}/styles`),
-        // Questions
-        axios.get(`/qa/questions/?product_id=${id}&page=${page}&count=${count}`),
-        // Reviews
-        axios.get(`/reviews/?product_id=${id}&page=${page}&count=${count}&sort=${sort}`),
-        axios.get(`/reviews/meta/?product_id=${id}`),
+        axios.get(`${SERVER_IP}/products/${productId}`),
+        axios.get(`${SERVER_IP}/products/${productId}/styles`),
       ])
       .then(axios.spread((...responses) => {
-
-        const allInfo = {
-          products: {},
-          productInfo: {},
-          productStyles: {},
-          questions: {},
-          reviews: {},
-          reviewsMeta: {}
-        };
-
-        allInfo.productInfo = responses[0].data;
-        allInfo.productStyles = responses[1].data;
-        allInfo.questions = responses[2].data.results;
-        allInfo.reviews = responses[3].data;
-        allInfo.reviewsMeta = responses[4].data;
-        return allInfo;
+        setProductInfo(responses[0].data[0]);
+        setProductStyles(responses[1].data[0]);
       }))
-      .then((data) => ( setProductAll(data) ))
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => (console.log(error)));
   };
 
   return (
     <div className='App'>
       {
-        productID ?
+        productInfo ?
         <>
-          <Overview
-            id={productID}
-            productInfo={productAll.productInfo}
-            productStyles={productAll.productStyles}
-            reviews={productAll.reviews}
-            stateHandler={updateState}/>
+          <Product
+            productId={productId}
+            productInfo={productInfo}
+            productStyles={productStyles}
+            // reviews={reviews}
+            // stateHandler={updateState}
+          />
           {/* <Questions
             id={productID}
             product={productAll.productInfo}
