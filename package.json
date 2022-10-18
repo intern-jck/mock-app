@@ -7,7 +7,8 @@
     "client-start": "webpack --mode=development",
     "client-build": "webpack --mode=production",
     "client-dev": "webpack serve --open",
-    "server-dev": "nodemon src/app.js"
+    "server-dev": "nodemon server/app.js",
+    "build-db": "node db/index.js"
   },
   "keywords": [],
   "author": "",

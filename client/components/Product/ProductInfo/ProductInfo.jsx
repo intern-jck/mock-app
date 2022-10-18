@@ -5,14 +5,6 @@ import StarRating from '../../shared/StarRating/StarRating.jsx';
 
 function ProductInfo({name, description, rating, reviewCount, price, salePrice, category }) {
 
-  const sharePage = (event) => {
-    event.preventDefault();
-    const target = event.target;
-    const name = target.name;
-    console.log(target);
-
-  }
-
   return (
     <div className="overview-product-info">
       <StarRating stars={rating} />

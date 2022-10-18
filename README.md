@@ -1,8 +1,16 @@
-# HR-SDC
-## An implentation of the entire SDC Project
+# mock-app
+
+## A fake MERN App for fun and profit
+
+This is a full stack app built with MongoDB, Express JS, React JS, and Node JS
+
+### Client
+
+### Server
+
+### Database
 
 Use ETL scripts to build database:
-
 
 TODO:
 
