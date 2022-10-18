@@ -7,12 +7,12 @@ import './Product.css';
 
 const Overview = ({productId, productInfo, productStyles}) => {
   console.log(productId, productInfo, productStyles)
+
   // const [product, setProduct] = useState({});
   // const [styles, setStyles] = useState([]);
   // const [style, setStyle] = useState({});
   // const [rating, setRating] = useState(0);
   // const [fullscreen, setFullscreen] = useState(false);
-
   // useEffect(() => {
   //   setProduct(productInfo);
   //   setStyles(productStyles);
@@ -28,16 +28,19 @@ const Overview = ({productId, productInfo, productStyles}) => {
   //     const avg = ratingsSum / reviews.count;
   //     setRating(avg);
   //   }
-  // }, [productInfo, productStyles, reviews]);
-
+  // }, [productId, productStyles]);
   // const updateStyle = (obj) => {
   //   setStyle(obj);
   // };
 
   return (
     <div className='Product'>
-      <Carousel slides={productStyles.photos} />
-      <div className='overview-product-dash'>
+
+      <div className='product-carousel'>
+        <Carousel slides={productStyles.photos} />
+      </div>
+
+      <div className='product-info'>
         <ProductInfo
           name={productInfo.name}
           description={productInfo.description}
@@ -45,7 +48,8 @@ const Overview = ({productId, productInfo, productStyles}) => {
           // reviewCount={reviews.count}
           price={productInfo.default_price}
           // salePrice={style.sale_price}
-          category={productInfo.category}/>
+          category={productInfo.category}
+        />
         {/* <StyleSelector
           // styleHandler={updateStyle}
           // style={styles ? style : {}}
@@ -53,6 +57,7 @@ const Overview = ({productId, productInfo, productStyles}) => {
           /> */}
         {/* <AddToCart skus={style ? style.skus : []}/> */}
       </div>
+
     </div>
   );
 

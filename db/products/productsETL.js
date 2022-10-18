@@ -8,13 +8,9 @@ const mongoose = require('mongoose');
 const Product = require('./ProductModel.js');
 
 const addProducts = (csvPath) => {
-// async function addProducts(csvPath) {
   let operations = [];
-  // Used to measure how long things are taking.
   const t0 = performance.now();
-
   return new Promise((resolve, reject) => {
-
     createReadStream(path.resolve(__dirname, csvPath))
     .pipe(csv.parse({ headers: true }))
     .on('error', (error) => (reject(error)))
@@ -50,9 +46,7 @@ const addProducts = (csvPath) => {
       console.log(`Added ${rowCount} products in ${Math.round(tEnd - t0)}`);
       resolve(rowCount);
     });
-
   });
-
 };
 
 const addProductFeatures = (csvPath) => {
