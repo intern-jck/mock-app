@@ -1,21 +1,20 @@
 import React from 'react';
-import { FaFacebook, FaTwitter, FaPinterest } from "react-icons/fa";
-// import StarRating from '../../shared/StarRating/StarRating.jsx';
-// import './ProjectInfo.css';
+import {FaFacebook, FaTwitter, FaPinterest} from "react-icons/fa";
+import './ProductInfo.css';
 
-function ProductInfo({info}) {
-  console.log(info)
+function ProductInfo({info, styles}) {
+  console.log('Product Info', info)
+  // console.log('Product Info', styles)
   return (
     <div className="ProductInfo">
-      {/* <StarRating stars={rating} /> */}
-      {/* {reviewCount ?
-        <h5><a className="onclick" href="#reviews-div">See all reviews</a> {reviewCount}</h5>
-        : <></>
-      } */}
-      {/* <h5>CATEGORY: {category}</h5> */}
-      {/* <h4>{name}</h4> */}
-      {/* <h5>{description}</h5> */}
-      {/* <h6>{price}</h6> */}
+      <h3>
+        {info.category}
+      </h3>
+      <h2>
+        {info.name}
+      </h2>
+      <h3>
+        {info.default_price}
       {/* { salePrice ?
         <h4>
           <span style={{textDecorationLine: 'line-through'}}>${price}</span>
@@ -23,6 +22,8 @@ function ProductInfo({info}) {
         </h4>
         : <h4>${price}</h4>
       } */}
+      </h3>
+
       {/* <div className="overview-social-icons">
         <a target="_blank" className="onclick" href= {`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}>
           <FaFacebook name="icon" size={25}/>

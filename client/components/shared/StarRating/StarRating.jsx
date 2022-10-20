@@ -1,6 +1,7 @@
 import React from "react";
-import "./Star.css";
 import Star from "./Star.jsx";
+import "./Star.css";
+import './StarRating.css';
 
 
 function StarRating({stars}) {
@@ -23,7 +24,7 @@ function StarRating({stars}) {
     }
 
   return (
-    <div className="stars-div">
+    <div className="StarRating">
       <div className="star-rating-back">
         <Star />
         <Star />

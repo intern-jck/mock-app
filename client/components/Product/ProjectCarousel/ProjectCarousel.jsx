@@ -3,8 +3,8 @@ import {FaChevronRight, FaChevronLeft, FaExpandArrowsAlt} from "react-icons/fa";
 import "./ProjectCarousel.css";
 import "./ProjectCarouselFullscreen.css";
 
-const Carousel = ({slides}) => {
-  console.log(slides)
+const ProjectCarousel = ({slides}) => {
+  // console.log(slides)
   const [current, setCurrent] = useState(0);
   const [length, setLength] = useState(0);
   const [images, setImages] = useState([]);
@@ -95,4 +95,4 @@ const Carousel = ({slides}) => {
 
 };
 
-export default Carousel;
+export default ProjectCarousel;

@@ -17,11 +17,13 @@
   display: flex;
 }
 
-.product-info {
+.product-dash {
   border: 4px solid blue;
+  padding: 1em;
   width: 30vw;
   /* margin: 1em; */
   /* padding: 1em; */
   display: flex;
-  /* flex-direction: row; */
+  flex-direction: column;
+  gap: 1em;
 }
