@@ -6,14 +6,14 @@ const getProducts = (req, res) => {
   Product.find()
   .sort({'product_id': 1})
   .limit(10)
-  .select({
-    'product_id': 1,
-    'name': 1,
-    'slogan': 1,
-    'description': 1,
-    'category': 1,
-    'default_price': 1,
-  })
+  // .select({
+  //   // 'product_id': 1,
+  //   // 'name': 1,
+  //   // 'slogan': 1,
+  //   // 'description': 1,
+  //   // 'category': 1,
+  //   // 'default_price': 1,
+  // })
   .exec()
   .then((doc) => {
     res.send(doc);

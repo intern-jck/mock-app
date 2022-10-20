@@ -3,17 +3,17 @@ const Answer = require('../models/answerModel.js');
 
 // GET REQ
 const getQuestions = (req, res) => {
-  console.log('Get Questions', req.query)
-  Question.find()
-  .limit(10)
-  .sort('product_id')
-  // .limit(10)
-  .select({
-    'product_id': 1,
-    'results': 1,
-  })
+  console.log('Get Questions',typeof parseInt(req.params.product_id))
+  Question.find({'product_id': parseInt(req.params.product_id)})
+  // .limit(1)
+  // .sort({'product_id': 1})
+  // .select({
+  //   'product_id': 1,
+  //   'results': 1,
+  // })
   .exec()
   .then((doc) => {
+    console.log('got', doc)
     res.send(doc);
   })
   .catch((error) => {
