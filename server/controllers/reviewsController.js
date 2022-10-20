@@ -16,25 +16,23 @@ const getReviews = (req, res) => {
 };
 
 
-// const getReviewsMeta = (product_id) => {
-//   return Review.find({'product_id': product_id}).select('meta')
-//   .exec();
-// };
-// (req, res) => {
-//   getReviewsMeta(req.params.product_id)
-//   .then((doc) => {
-//     const chars = doc[0].meta.characteristics;
-//     for (let c in chars) {
-//       chars[chars[c].name] = { 'id': c, 'value': chars[c].value.reduce((a, b) => (a + b)) / chars[c].value.length};
-//       delete chars[c];
-//     }
-//     res.send(doc);
-//   })
-//   .catch((error) => {
-//     res.sendStatus(404);
-//     console.log(error)
-//   });
-// }
+const getReviewsMeta = (req, res) => {
+  Review.find({'product_id': parseInt(req.params.product_id)})
+  .select('meta')
+  .exec()
+  .then((doc) => {
+    const chars = doc[0].meta.characteristics;
+    for (let c in chars) {
+      chars[chars[c].name] = { 'id': c, 'value': chars[c].value.reduce((a, b) => (a + b)) / chars[c].value.length};
+      delete chars[c];
+    }
+    res.send(doc);
+  })
+  .catch((error) => {
+    res.sendStatus(404);
+    console.log(error)
+  });
+}
 
 
 
@@ -133,5 +131,6 @@ const getReviews = (req, res) => {
 
 module.exports = {
   getReviews,
-  // addReview, getReviewsMeta, markHelpful, reportReview
+  getReviewsMeta,
+  // addReview, , markHelpful, reportReview
 };
