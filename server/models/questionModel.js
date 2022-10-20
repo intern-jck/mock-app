@@ -1,7 +1,7 @@
 const {Schema, model} = require('mongoose');
 
 const QuestionModel = new Schema({
-  product_id: String,
+  product_id: Number,
   results: [{
       question_id: Number,
       question_body: String,
