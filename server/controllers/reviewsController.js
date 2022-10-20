@@ -2,13 +2,11 @@ const Review = require('../models/reviewModel.js');
 
 // GET REQ
 const getReviews = (req, res) => {
-  console.log(req.query)
-  Review.find({'product_id': product_id}).select('results')
+  console.log(parseInt(req.params.product_id))
+  Review.find({'product_id': parseInt(req.params.product_id)})
+  .select('results')
   .exec()
   .then((doc) => {
-    doc[0].product_id = req.params.product_id;
-    doc[0].page = 1;
-    doc[0].count = req.query.count;
     res.send(doc);
   })
   .catch((error) => {

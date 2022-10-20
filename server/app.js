@@ -24,13 +24,13 @@ mongoose.connect(mongoURL,
 //Routes
 const productsRouter = require('./routes/products.js');
 const questionsRouter = require('./routes/questions.js');
+const reviewsRouter = require('./routes/reviews.js');
 // const relatedRouter = require('./routes/related.js');
-// const reviewsRouter = require('./routes/reviews.js');
 
 app.use('/products', productsRouter);
 app.use('/qa', questionsRouter);
+app.use('/reviews', reviewsRouter);
 // app.use('/related', relatedRouter);
-// app.use('/reviews', reviewsRouter);
 
 app.listen(PORT, function() {
   console.log(`@http://localhost:${PORT} on port ${PORT}`);
