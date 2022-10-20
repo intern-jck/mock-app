@@ -3,7 +3,7 @@ import {FaFacebook, FaTwitter, FaPinterest} from "react-icons/fa";
 import './ProductInfo.css';
 
 function ProductInfo({info, styles}) {
-  console.log('Product Info', info)
+  // console.log('Product Info', info)
   // console.log('Product Info', styles)
   return (
     <div className="ProductInfo">

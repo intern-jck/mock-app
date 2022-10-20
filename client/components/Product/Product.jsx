@@ -32,7 +32,7 @@ const Product = ({productId, productInfo, productStyles}) => {
           styles={productStyles}
           // style={styles ? style : {}}
           // results={productStyles}
-          />
+        />
         {/* <AddToCart skus={style ? style.skus : []}/> */}
       </div>
 
