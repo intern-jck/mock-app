@@ -6,8 +6,7 @@ const {
   // getReviewsMeta, addReview, markHelpful, reportReview
   } = require('../controllers/reviewsController.js');
 
-// router.get('/:product_id/list', getReviews);
-router.get('/', getReviews);
+router.get('/:product_id', getReviews);
 
 // router.get('/:product_id/meta', getReviewsMeta);
 //
