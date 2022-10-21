@@ -1,3 +1,7 @@
+:root {
+  --app-section-height: 80vh;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;

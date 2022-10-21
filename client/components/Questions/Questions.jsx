@@ -7,7 +7,7 @@ import { GoSearch } from 'react-icons/go';
 import './Questions.css';
 
 const Questions = ({questions}) => {
-  console.log(questions)
+  console.log(questions);
   // const [productID, setProductID] = useState(id);
   // const [questions, setQuestions] = useState([]);
   // const [qLimit, setQLimit] = useState(2);

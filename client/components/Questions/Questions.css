@@ -1,5 +1,6 @@
 .Questions {
   border: 8px solid black;
+  height: var(--app-section-height);
   margin: 1em;
   padding: 1em;
   display: flex;

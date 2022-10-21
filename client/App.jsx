@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Product from './components/Product/Product.jsx';
 import Questions from './components/Questions/Questions.jsx';
-// import Reviews from './components/Reviews.jsx';
+import Reviews from './components/Reviews/Reviews.jsx';
 import './App.css';
 
 const SERVER_IP = 'http://localhost:3000';
@@ -13,6 +13,8 @@ const App = () => {
   const [productInfo, setProductInfo] =useState();
   const [productStyles, setProductStyles] =useState();
   const [questions, setQuestions] = useState();
+  const [reviews, setReviews] = useState();
+  const [meta, setMeta] = useState();
 
   useEffect(() => {
     // Get Products
@@ -21,9 +23,10 @@ const App = () => {
     //   setProductInfo(response.data[0])
     // })
     // .catch((error) => (console.log('Get Products Error:', error)));
-    // getProduct(productId);
+    getProduct(productId);
     getQuestions(productId);
-
+    getReviews(productId);
+    getMeta(productId);
   }, []);
 
   const getProduct = (id) => {
@@ -47,6 +50,22 @@ const App = () => {
       })
       .catch((error) => (console.log('get questions error:', error)));
   }
+
+  const getReviews = (id) => {
+    axios.get(`${SERVER_IP}/reviews/${id}`)
+      .then((response) => {
+        setReviews(response.data[0].results);
+      })
+      .catch((error) => (console.log('get reviews error:', error)));
+  };
+
+  const getMeta = (id) => {
+    axios.get(`${SERVER_IP}/reviews/${id}/meta`)
+    .then((response) => {
+      setMeta(response.data[0].meta);
+    })
+    .catch((error) => (console.log('get meta error:', error)));
+  };
 
   return (
     <div className='App'>
@@ -72,15 +91,17 @@ const App = () => {
           /> :
           null
       }
-      {/* {
-        reviews ?
+      {
+        reviews && meta ?
           <Reviews
-            id={productID}
-            reviews={productAll.reviews}
-            reviewsMeta={productAll.reviewsMeta}
-            stateHandler={updateState}/> :
+            reviews={reviews}
+            meta={meta}
+            // reviews={productAll.reviews}
+            // reviewsMeta={productAll.reviewsMeta}
+            // stateHandler={updateState}
+          /> :
           null
-      } */}
+      }
     </div>
   );
 
