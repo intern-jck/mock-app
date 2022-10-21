@@ -3,6 +3,7 @@ const Answer = require('../models/answerModel.js');
 
 // GET REQ
 const getQuestions = (req, res) => {
+  console.log(parseInt(req.params.product_id));
   Question.find({'product_id': parseInt(req.params.product_id)})
   // .limit(1)
   // .sort({'product_id': 1})
@@ -16,7 +17,7 @@ const getQuestions = (req, res) => {
   })
   .catch((error) => {
     res.sendStatus(404);
-    console.log('Get Product Error:', error);
+    console.log('Get Questions Error:', error);
   });
 };
 
@@ -38,7 +39,7 @@ const getAnswers = (req, res) => {
     // res.send(doc);
   })
   .catch((error) => {
-    console.log('Get Product Error:', error);
+    console.log('Get Answers Error:', error);
     res.sendStatus(404);
   });
 };
@@ -57,7 +58,7 @@ const postQuestion = (req, res) => {
   })
   .catch((error) => {
     res.sendStatus(404);
-    console.log('Get Product Error:', error);
+    console.log('Post Question Error:', error);
   });
 };
 
@@ -70,7 +71,7 @@ const postAnswer = (req, res) => {
   //   res.send(doc);
   // })
   // .catch((error) => {
-  //   console.log('Get Product Error:', error);
+  //   console.log('Post Answer Error:', error);
   //   res.sendStatus(404);
   // });
 };
