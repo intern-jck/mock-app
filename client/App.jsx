@@ -8,7 +8,7 @@ import './App.css';
 const SERVER_IP = 'http://localhost:3000';
 
 const App = () => {
-  const [productId, setProductId] = useState(1);
+  const [productId, setProductId] = useState(2);
   const [productInfo, setProductInfo] =useState();
   const [productStyles, setProductStyles] =useState();
   const [questions, setQuestions] = useState();
@@ -84,8 +84,8 @@ const App = () => {
             productId={productId}
             productInfo={productInfo}
             productStyles={productStyles}
+            // rating={meta.ratings}
             // reviews={reviews}
-            // stateHandler={updateState}
           /> :
           null
       }
@@ -94,9 +94,7 @@ const App = () => {
         questions ?
           <Questions
             questions={questions}
-            // product={productAll.productInfo}
-            // questionsData={productAll.questions}
-            // stateHandler={updateState}
+            // answers={answers}
           /> :
           null
       }
@@ -105,9 +103,6 @@ const App = () => {
           <Reviews
             reviews={reviews}
             meta={meta}
-            // reviews={productAll.reviews}
-            // reviewsMeta={productAll.reviewsMeta}
-            // stateHandler={updateState}
           /> :
           null
       }

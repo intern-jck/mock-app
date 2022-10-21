@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import {FaChevronRight, FaChevronLeft, FaExpandArrowsAlt} from "react-icons/fa";
-import "./ProjectCarousel.css";
-import "./ProjectCarouselFullscreen.css";
+import React, { useState, useEffect } from 'react';
+import {FaChevronRight, FaChevronLeft, FaExpandArrowsAlt} from 'react-icons/fa';
+import './ProductCarousel.css';
 
-const ProjectCarousel = ({slides}) => {
-  // console.log(slides[0].url)
+const ProductCarousel = ({slides}) => {
+  console.log(slides)
   const [length, setLength] = useState(slides.length);
   const [current, setCurrent] = useState(0);
   // const [currentImage, setCurrentImage] = useState('');
@@ -25,13 +24,16 @@ const ProjectCarousel = ({slides}) => {
   };
 
   return (
-    <div className='ProjectCarousel'>
+    <div className='ProductCarousel'>
 
-      <div className='project-carousel-img'>
+      {
+        slides.length > 0 ?
+        <>
+
+      <div className='product-carousel-img'>
         <img src={slides[current].url} />
       </div>
-
-      <div className='project-carousel-controls'>
+      <div className='product-carousel-controls'>
         { current > 0 ?
           <FaChevronLeft
             className='carousel-left-arrow'
@@ -47,13 +49,18 @@ const ProjectCarousel = ({slides}) => {
             null
         }
       </div>
-      {/* <div className='project-carousel-indicators'>
+      {/* <div className='product-carousel-indicators'>
         { images ?
           images.map((slide, i) => ( i < 7 ? <div key={i} /> : <></>)) : null
         }
       </div> */}
+        </> :
+        <h3>NO IMAGE FOUND!</h3>
+      }
+
+
     </div>
   );
 };
 
-export default ProjectCarousel;
+export default ProductCarousel;
