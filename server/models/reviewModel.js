@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const {Schema, model} = require('mongoose');
 
-const ReviewSchema = new mongoose.Schema({
+const ReviewModel = new Schema({
   product_id: Number,
   results: [{
     id:  Number,
@@ -32,5 +32,5 @@ const ReviewSchema = new mongoose.Schema({
   }
 });
 
-const Review = mongoose.model('Reviews', ReviewSchema);
+const Review = model('Reviews', ReviewModel);
 module.exports = Review;
