@@ -15,19 +15,11 @@ const App = () => {
   const [questions, setQuestions] = useState();
 
   useEffect(() => {
-    // Get Products
-    // axios.get(`${SERVER_IP}/products/${productId}`)
-    // .then((response) => {
-    //   setProductInfo(response.data[0])
-    // })
-    // .catch((error) => (console.log('Get Products Error:', error)));
-    // getProduct(productId);
+    getProduct(productId);
     getQuestions(productId);
-
   }, []);
 
   const getProduct = (id) => {
-    // id = Number(id);
     axios
       .all([
         axios.get(`${SERVER_IP}/products/${id}`),
@@ -61,7 +53,6 @@ const App = () => {
           /> :
           null
       }
-
       {
         questions ?
           <Questions
@@ -83,7 +74,6 @@ const App = () => {
       } */}
     </div>
   );
-
 }
 
 export default App;
