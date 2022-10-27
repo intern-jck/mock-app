@@ -1,0 +1,27 @@
+.stars-div {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.star-rating-back {
+  display: flex;
+  position: relative;
+  top: 0;
+  color:white;
+  stroke-width: 4%;
+  stroke: black;
+}
+
+.star-rating-front {
+  display: flex;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  color: gold;
+  stroke: black;
+}
+
+.star-svg {
+  flex-shrink: 0;
+}

@@ -1,0 +1,13 @@
+.ProductInfo {
+  border: 4px solid black;
+  /* margin: 1em; */
+  display: flex;
+  flex-direction: column;
+  /* gap: 1em; */
+}
+
+h2, h3, h4 {
+  border: 4px solid black;
+  margin-top: 0;
+  margin-bottom: 0;
+}
