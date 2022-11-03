@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Carousel from '../Carousel/Carousel.jsx';
 import ProductInfo from './ProductInfo/ProductInfo.jsx';
-import StyleSelector from './StyleSelector/StyleSelector.jsx';
+// import StyleSelector from './StyleSelector/StyleSelector.jsx';
 import StarRating from '../shared/StarRating/StarRating.jsx';
 import './Product.css';
 
@@ -26,9 +26,9 @@ const Product = ({productId, productInfo, productStyles}) => {
           info={productInfo}
           styles={productStyles}
         />
-        <StyleSelector
+        {/* <StyleSelector
           styles={productStyles}
-        />
+        /> */}
         {/* <AddToCart skus={style ? style.skus : []}/> */}
       </div>
 

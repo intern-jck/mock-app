@@ -5,10 +5,10 @@ import Questions from './components/Questions/Questions.jsx';
 // import Reviews from './components/Reviews.jsx';
 import './App.css';
 
-const SERVER_IP = 'http://localhost:3000';
+const SERVER_IP = 'http://127.0.0.1:3000';
 
 const App = () => {
-  const [productId, setProductId] = useState(1);
+  const [productId, setProductId] = useState(100);
   // All info stored in one state.
   const [productInfo, setProductInfo] =useState();
   const [productStyles, setProductStyles] =useState();
